@@ -1,0 +1,14 @@
+Ctrl + S 保存
+Ctrl + W ページを閉じる
+Ctrl + Z １行戻る
+Ctrl + Shift + Z １行進む
+Ctrl + X 切り取り
+Ctrl + F　コマンドを見つける
+Ctrl + / コメントアウト、コメントイン
+Ctrl + A すべて選択
+Alt + Shift + ↓ 下に上のものを複製
+Alt + ↓ 上下を入れ替える
+Ctrl + D まとめて選択
+Alt + Ctrl + → 隣のエディタに移動
+Ctrl + ] インデント
+Ctrl + K  Ctrl + S ショートカットの表示
