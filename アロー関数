@@ -1,0 +1,40 @@
+無名関数
+
+```
+sayMyName = function (name) {
+return `My name is ${name}.`
+};
+```
+
+アロー関数
+（アローは矢印という意味）
+
+```
+sayMyName = (name) => {
+return `My name is ${name}.`
+};
+```
+
+ひとつの式のみをreturnする場合は、returnと{}を省略できる.
+
+```
+sayMyName = (name) => `My name is ${name}.`;
+```
+
+パラメータが1つの場合は()を省略できる.
+
+```
+sayMyName = name => {
+return `My name is ${name}.`
+};
+```
+
+thisというキーワードの使われ方の違い
+
+objectをreturnするときは、()でくくる.
+
+```
+sayMyName = (name) => ({
+name: name,
+});
+```
