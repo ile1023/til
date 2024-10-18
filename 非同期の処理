@@ -1,0 +1,78 @@
+非同期の処理とは
+ある処理を待たずに次の処理を行うこと.
+ブラウザやNode.jsのAPIを使うことで発生する.
+
+setTimeout(() => {
+console.log(2);
+}, 1000);
+console.log(1);
+
+とすると、先に1が表示される。
+
+window.addEventListener('click', () => {
+console.log(2);
+  });
+console.log(1);
+
+としても、先に1が表示される。
+
+alert('not async');
+console.log(1);
+
+これは非同期の処理ではないので、上から順番に処理を行う。
+（同期）
+
+一般的に非同期の処理はC++の処理（内部的な処理）とJavascriptの処理の２つから成り立っている。
+
+
+  
+Javascriptを実行する処理において、どういう処理を実行してほしいのかはコールバック関数を使って表す。
+２つの問題点
+１，コールバック地獄（破滅のピラミッド）
+
+window.addEventListener('click', (e) => {          //イベントオブジェクトを表示
+  console.log(e)
+  setTimeout(() => {
+  console.log('setTimeout');　　　　　　　　　　　　　//クリックされた１秒後の処理
+  navigator.geolocation.getCurrentPosition((positon) => {   //クリックされた1秒後に現在地の取得
+    console.log(position);
+    setInterval(() => {                             //1秒ごとに処理を実行
+      console.log('setInterval');
+    }, 1000)
+  });
+}, 1000);
+});
+
+正しくインデントしている限り、コードが右に膨れ上がる.
+
+２，エラーをキャッチできない
+try {
+setTimeout(() => {
+   throw new Error('error')   //非同期的な処理
+}, 1000)
+} catch(error){
+console.log(error);
+
+非同期的な処理はtry文から抜けた後に実行されるため、うまくキャッチできない.
+
+try{
+setTimeout(() => {
+  try{
+  throw new Error('error');
+  } catch (error) {
+console.log(error.message);
+}
+}, 0);
+} catch (error);
+}
+
+とすると解決する.
+しかし、C++のエラーはキャッチできない.
+
+
+let promise = new Promise((resolve, reject) => {
+  console.log('new promise!');
+  });//Promiseオブジェクトの作成
+
+必ず第一引数にコールバック関数をいれる.
+コールバック関数はnew Promiseされた瞬間に実行される.
