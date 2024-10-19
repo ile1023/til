@@ -1,0 +1,10 @@
+const person = {
+  name: 'Ningning',
+  age: 21,
+  greet(){               //:とfunctionを省略
+    console.log('hello');
+  },
+};
+person.greet();
+
+オブジェクトの中に関数を入れることができる.
