@@ -1,0 +1,31 @@
+const kpopGropes = ["aespa", "fromis_9", "viviz"];
+
+const Example = () => {
+  return (
+    <>
+      <h3>配列の操作</h3>
+      <ul>
+       <li>{kpopGroups[0]}</li>
+       <li>{kpopGroups[1]}</li>
+       <li>{kpopGroups[2]}</li>
+    <>
+  );
+};
+
+export default Example;
+
+
+
+for文を使う(あまり使わない)
+const kpopGroupList = [];
+for{const kpopGroup of kpopGroups){　　　　　
+  kpopGroupList.push(<li key={kpopGroup}>{kpopGroup}</li>) //配列の末尾に追加
+}
+
+mapを使う
+const favoriteGroups = kpopGroups.map((kpopGroup) => <li key={kpopGroup}>I like {kpopGroup}.</li>)
+
+keyをつけると、差分のみ更新が可能になる.
+    ・一意の値を設定する
+    ・keyの値を変更しない
+    ・配列のインデックスはなるべく使わない（要素を追加、削除すると異なる配列に要素が結びつく）
