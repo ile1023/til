@@ -1,0 +1,32 @@
+let a = 0;
+
+new Promise((resolve, reject) => {
+  setTimeout(() => {
+    a = 1;
+    resolve(a)
+  }, 2000);
+}).then((b) => {
+  console.log(b);
+  return b;
+}).then((b) => {
+  console.log(b);
+}).catch((c) => {
+  console.log('catchが実行', c)
+})
+
+上のコードを簡略化するためにawait, asyncを使う
+let a = 0;
+async function init() {
+try {
+const result = await new Promise((resolve, reject) => {
+  setTimeout(() => {
+    a = 1;
+    resolve(a)
+  }, 2000);
+})
+  console.log(result);
+}catch(e){                          //エラーが発生した時の処理を記述
+  console.log('catchが実行', e)
+}
+  
+  
