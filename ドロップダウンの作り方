@@ -1,0 +1,19 @@
+export const SongsSelect = (props) => {
+  return(
+    <>
+      <select>
+        <props.songs.map((song, index) => (
+          <option key={index} value={breed}>
+            {song}
+          </option>
+        ))}
+      </select>
+    </>
+  );
+};
+
+ポイント
+  ・props.songsが配列であるとして.map()を使い、各要素を<option>タグに変換している.
+   .map()は、配列の各要素を一つずつ取り出して何かを処理するときに便利.
+  ・<option>にkey={index}を追加して、Reactが各要素を識別できるようにする.
+         
