@@ -1,0 +1,54 @@
+親コンポーネントから子コンポーネントに関数を渡す
+
+親コンポーネント
+function ParentComponent() {
+  const handleClick = () => {
+    console.log('親の関数が呼ばれました');
+  };
+
+  return(
+    <div>
+        <h1>親コンポーネント<h1>
+        <ChildComponent onClick={handleClick} />
+    </div>
+  );
+}
+
+子コンポーネント
+function ChildComponent({ onClick }) {
+  return (
+    <div>
+        <h2>子コンポーネント</h2>
+        <button onClick={onClick}親の関数を呼び出す</button>
+    </div>
+ );
+}
+
+
+1つの関数に複数のpropsを渡すとき
+
+親コンポーネント
+function App() {
+  const userProps = {
+    name: 'ningning',
+    age: '21',
+    message: '明日は誕生日ですね!'
+  };
+
+  return (
+    <div>
+      <MyConponent {...userProps} /}
+    </div>
+  );
+}
+
+関数コンポーネント
+function MyConponent({ name, age, message }) {
+  return (
+    <div>
+      <h1>こんにちは、{name}さん!</h1>
+      <p>あなたの年齢は{age}歳です.</p>
+      <p>メッセージ：{message}</p>
+    </div>
+  );
+}
