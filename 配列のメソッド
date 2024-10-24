@@ -1,0 +1,11 @@
+const items = [0, 1, 2];
+items.push(3);
+
+pushで配列の末尾に値を追加できる
+
+const items = [0, 1, 2];
+const newItems = items.map((item) => {
+  return item * 2;
+});
+
+mapで配列に処理をして同じ場所に格納する
